@@ -2,7 +2,7 @@
 
 An end-to-end algorithmic trading framework that uses **Gaussian signal processing**, **Hidden Markov Model regime detection**, and **multi-strategy portfolio optimization** to trade Gold (XAUUSD) on MetaTrader 5.
 
-**[Live Interactive Demo](https://vinu-kevin-diesel.github.io/MT5-Strategy-Lab/)** — try it in your browser, no installation needed.
+**[Live Interactive Demo](https://vinu-kevin-diesel.github.io/AI-Quant-Strategy-Lab/)** — try it in your browser, no installation needed.
 
 Built from scratch using **Claude Code** as the AI coding agent — 50+ strategy variants backtested, 10 core EAs developed, and automated MT5 backtesting pipeline.
 
