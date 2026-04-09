@@ -58,9 +58,6 @@ Three uncorrelated strategies run simultaneously with independent magic numbers:
 ### 4. Automated MT5 Strategy Tester Runner
 Python script that programmatically launches MT5's built-in Strategy Tester via command-line config, parses results from tester logs, and returns metrics — enabling automated parameter optimization loops.
 
-### 5. Telegram Signal Auto-Trader
-Connects to Telegram channels via Telethon, parses trade signals in real-time, and executes them on MT5 with smart order type selection (Market / Limit / Stop based on current price vs signal zone).
-
 ## Results (Backtest — MT5 Strategy Tester, Every Tick, 47ms Latency)
 
 | EA | Period | Net Profit | Profit Factor | Max DD | Win Rate | Trades |
@@ -76,10 +73,10 @@ Connects to Telegram channels via Telethon, parses trade signals in real-time, a
 ## Project Structure
 
 ```
+├── demo.py                   # Interactive demo (no MT5 needed)
 ├── run.py                    # MT5 Strategy Tester automation
 ├── hmm_regime.py             # Hidden Markov Model regime detector
 ├── hmm_backtest.py           # Python backtester with HMM integration
-├── telegram_trader.py        # Telegram signal → MT5 auto-execution
 ├── mq5/                      # MQL5 Expert Advisors
 │   ├── Gold_Apex_EA.mq5          # Best-of-everything single strategy
 │   ├── Gold_Portfolio_v7_EA.mq5  # 3-strategy portfolio + kill switches
@@ -116,7 +113,13 @@ Connects to Telegram channels via Telethon, parses trade signals in real-time, a
 ### Prerequisites
 - MetaTrader 5 (Pepperstone or any broker)
 - Python 3.11+
-- `pip install MetaTrader5 hmmlearn telethon pandas numpy`
+- `pip install MetaTrader5 hmmlearn pandas numpy scikit-learn scipy`
+
+### Interactive Demo (No MT5 Required)
+```bash
+python demo.py              # Full demo with synthetic data
+python demo.py --quick      # Quick 30-second version
+```
 
 ### Running a Backtest
 ```bash
@@ -127,12 +130,6 @@ python run.py --ea Gold_Apex_EA --from 2024.01.01 --to 2025.12.31 --timeout 300
 ```bash
 python hmm_regime.py --train          # Full analysis
 python hmm_regime.py --loop 5         # Live updates every 5 min
-```
-
-### Running Telegram Auto-Trader
-```bash
-python telegram_trader.py --dry-run   # Test mode
-python telegram_trader.py             # Live execution
 ```
 
 ## Optimization
